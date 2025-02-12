@@ -3,100 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White Cocao</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>Steampunk E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
-            background-color: #0a0a0a;
-            color: #d4af37;
-            font-family: 'Orbitron', sans-serif;
-            background-image: url('background-smoke.gif');
-            background-size: cover;
-            background-attachment: fixed;
+            background-color: #1a1a1a;
+            color: #ffcc00;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
         }
-
-        .steampunk-header {
-            font-size: 2rem;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-        }
-
         .navbar {
-            background: linear-gradient(90deg, #111, #222);
-            border-bottom: 3px solid #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(90deg, #3e3e3e, #222222);
+            border-bottom: 3px solid #ffcc00;
         }
-
-        .card {
-            background: #111;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-            transition: transform 0.3s;
+        .product-card {
+            background-color: #2d2d2d;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ffcc00;
+            text-align: center;
         }
-
-        .card:hover {
-            transform: scale(1.05);
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
-
-        .btn-primary {
-            background: linear-gradient(90deg, #d4af37, #ffcc00);
+        .btn-warning {
+            background-color: #ff9900;
             border: none;
-            color: #000;
-            font-weight: bold;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
-
-        .btn-primary:hover {
-            background: linear-gradient(90deg, #ffcc00, #d4af37);
-            box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
-        }
-
-        .modal-content {
-            background: #222;
-            border: 2px solid #d4af37;
-        }
-
-        .btn-danger {
-            background: linear-gradient(90deg, #ff0000, #cc0000);
-            border: none;
+        .btn-warning:hover {
+            background-color: #cc7700;
         }
     </style>
 </head>
 <body>
-    <header class="steampunk-header text-center p-4">
-        <h1>White Cocao</h1>
-    </header>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">BudShop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (<span id="cart-count">0</span>)</a></li>
-                </ul>
-            </div>
+            <a class="navbar-brand" href="#">⚙️ Steampunk Store ⚙️</a>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cartModal">View Cart</button>
         </div>
     </nav>
-    
-    <main class="container mt-5">
-        <section id="shop" class="row">
+
+    <div class="container mt-4">
+        <div class="row" id="product-list">
             <div class="col-md-4">
-                <div class="card">
-                    <img src="https://support.blockchain.com/attachments/token/BTkNHzCmhlSak6px4MWm4VYRO/?name=msedge_NIHcwExjFC.png" class="card-img-top" alt="Weed">
-                    <div class="card-body">
-                        <center><h5 class="card-title">Skywalker OG 3.5G</h5>
-                        <p class="card-text">A cross of Skywalker and OG Kush, producing a relaxing, euphoric and tranquil high</p>
-                        <p class="card-text">$35</p>
-                        <button class="btn btn-primary add-to-cart" data-name="Skywalker OG 3.5G" data-price="35">Add to Cart</button></center>
-                    </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Steampunk Goggles">
+                    <h5>Steampunk Goggles</h5>
+                    <p>$50</p>
+                    <button class="btn btn-primary add-to-cart" data-name="Steampunk Goggles" data-price="50">Add to Cart</button>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Steampunk Pocket Watch">
+                    <h5>Steampunk Pocket Watch</h5>
+                    <p>$75</p>
+                    <button class="btn btn-primary add-to-cart" data-name="Steampunk Pocket Watch" data-price="75">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="cartModal" tabindex="-1">
         <div class="modal-dialog">
@@ -107,66 +79,79 @@
                 </div>
                 <div class="modal-body">
                     <ul id="cart-items" class="list-group"></ul>
-                    <p>Total: $<span id="cart-total">0.00</span></p>
-                    <input type="text" id="coupon-code" class="form-control" placeholder="Enter coupon code">
-                    <button class="btn btn-success mt-2" id="apply-coupon">Apply Coupon</button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" id="clear-cart">Clear Cart</button>
+                    <p class="mt-3">Total: $<span id="cart-total">0</span></p>
+                    <input type="text" id="coupon" class="form-control" placeholder="Enter Coupon Code">
+                    <button class="btn btn-success mt-2" onclick="applyCoupon()">Apply Coupon</button>
+                    <button class="btn btn-danger mt-2" onclick="clearCart()">Clear Cart</button>
+                    <button class="btn btn-primary mt-2" onclick="processCashAppPayment()">Checkout with Cash App</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let cart = [];
-        const couponCode = "byte15";
-        const discount = 0.15;
-        
-        document.querySelectorAll(".add-to-cart").forEach(button => {
-            button.addEventListener("click", () => {
-                const name = button.getAttribute("data-name");
-                const price = parseFloat(button.getAttribute("data-price"));
+        let discountApplied = false;
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                let name = this.getAttribute('data-name');
+                let price = parseFloat(this.getAttribute('data-price'));
                 cart.push({ name, price });
                 updateCart();
             });
         });
-        
+
         function updateCart() {
-            const cartItems = document.getElementById("cart-items");
-            cartItems.innerHTML = "";
+            let cartList = document.getElementById('cart-items');
+            let cartTotal = document.getElementById('cart-total');
+            cartList.innerHTML = '';
             let total = 0;
-            cart.forEach((item, index) => {
+
+            cart.forEach(item => {
+                let li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                li.classList.add('list-group-item');
+                cartList.appendChild(li);
                 total += item.price;
-                const li = document.createElement("li");
-                li.classList.add("list-group-item");
-                li.innerHTML = `${item.name} - $${item.price.toFixed(2)} <button class='btn btn-sm btn-danger' onclick='removeItem(${index})'>Remove</button>`;
-                cartItems.appendChild(li);
             });
-            document.getElementById("cart-total").textContent = total.toFixed(2);
-            document.getElementById("cart-count").textContent = cart.length;
-        }
-        
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCart();
-        }
-        
-        document.getElementById("apply-coupon").addEventListener("click", () => {
-            const enteredCode = document.getElementById("coupon-code").value;
-            if (enteredCode === couponCode) {
-                let total = parseFloat(document.getElementById("cart-total").textContent);
-                total *= (1 - discount);
-                document.getElementById("cart-total").textContent = total.toFixed(2);
+
+            if (discountApplied) {
+                total *= 0.85;
             }
-        });
-        
-        document.getElementById("clear-cart").addEventListener("click", () => {
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function clearCart() {
             cart = [];
+            discountApplied = false;
+            document.getElementById('coupon').value = '';
             updateCart();
-        });
+        }
+
+        function applyCoupon() {
+            let couponInput = document.getElementById('coupon').value;
+            if (couponInput === 'byte15' && !discountApplied) {
+                discountApplied = true;
+                updateCart();
+                alert('Coupon Applied! 15% Discount Added.');
+            } else if (discountApplied) {
+                alert('Coupon has already been applied.');
+            } else {
+                alert('Invalid Coupon Code.');
+            }
+        }
+
+        function processCashAppPayment() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            let total = parseFloat(document.getElementById('cart-total').textContent);
+            let cashTag = "ballexd";
+            let paymentUrl = `https://cash.app/$${cashTag}?amount=${total.toFixed(2)}`;
+            window.open(paymentUrl, "_blank");
+        }
     </script>
 </body>
 </html>
