@@ -151,6 +151,16 @@
             let cashTag = "ballexd";
             let paymentUrl = `https://cash.app/$${cashTag}?amount=${total.toFixed(2)}`;
             window.open(paymentUrl, "_blank");
+            sendEmail(cart, total);
+        }
+
+        function sendEmail(cart, total) {
+            let emailBody = "Order Details:\n";
+            cart.forEach(item => {
+                emailBody += `${item.name} - $${item.price}\n`;
+            });
+            emailBody += `Total: $${total.toFixed(2)}`;
+            window.open(`mailto:bytetard@gmail.com?subject=New Order&body=${encodeURIComponent(emailBody)}`);
         }
     </script>
 </body>
