@@ -65,7 +65,7 @@
     <nav class="navbar navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">💊 White CoCao by ByteTard 💊</a>
-            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cartModal">Check Out!</button>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cartModal">Check Out</button>
         </div>
     </nav>
 
@@ -75,16 +75,16 @@
                 <div class="product-card">
                     <img src="https://mindgeek.zendesk.com/attachments/token/cHGAHYoLlWUmM81Nt4UuPs0P1/?name=IMG_6740.PNG" alt="Spook Candy">
                     <h5>Death Gummies</h5>
-                    <p>$150.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="600mg thc" data-price="150">Add to Cart</button>
+                    <p>$50.00 USD</p>
+                    <button class="btn btn-primary add-to-cart" data-name="1000mg thc" data-price="50">Add to Cart</button>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="product-card">
                     <img src="https://mindgeek.zendesk.com/attachments/token/sFQlp4B7W9NuvGVcHB7wBESlQ/?name=IMG_6739.PNG" alt="Mushroom">
                     <h5>Magic Candy</h5>
-                    <p>$100.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="750mg shroom" data-price="100">Add to Cart</button>
+                    <p>$25.00 USD</p>
+                    <button class="btn btn-primary add-to-cart" data-name="1000mg shroom" data-price="25">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -104,8 +104,8 @@
                     <p class="mt-3">Total: $<span id="cart-total">0</span></p>
                     <input type="text" id="coupon" class="form-control" placeholder="Enter Coupon Code">
                     <button class="btn btn-success mt-2" id="apply-coupon">Apply Coupon</button>
-                    <button class="btn btn-danger mt-2" id="clear-cart">Clear Cart</button>
-                    <button class="btn btn-primary mt-2" id="checkout">Checkout with Cash App</button>
+                    <button class="btn btn-danger mt-2" id="clear-cart">Empty Cart</button>
+                    <button class="btn btn-primary mt-2" id="checkout">Pay with Cash App</button>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
 
         $('#apply-coupon').click(function() {
             let couponCode = $('#coupon').val();
-            if (couponCode === 'jew' && !discountApplied) {
+            if (couponCode === 'tiktok' && !discountApplied) {
                 discountApplied = true;
                 updateCart();
             }
