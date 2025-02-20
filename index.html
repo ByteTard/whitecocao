@@ -1,3 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteTard Selects</title>
+    
+    <script>
+        window.onload = function () {
+            let titleText = "<--- ByteTard Selects --->";
+            let position = 0;
+            function scrollTitle() {
+                document.title = titleText.substring(position) + titleText.substring(0, position);
+                position = (position + 1) % titleText.length;
+                setTimeout(scrollTitle, 200);
+            }
+            scrollTitle();
+        };
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffcc00;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        }
+        .navbar {
+            background: linear-gradient(90deg, #3e3e3e, #222222);
+            border-bottom: 3px solid #ffcc00;
+        }
+        .product-card {
+            background-color: #2d2d2d;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ffcc00;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .product-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.9);
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .product-card:hover .product-info {
+            opacity: 1;
+        }
+        .btn-warning {
+            background-color: #ff9900;
+            border: none;
+        }
+        .btn-warning:hover {
+            background-color: #cc7700;
+        }
+        .floating-cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(45, 45, 45, 0.9);
+            color: #ffcc00;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ffcc00;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">💊 White CoCao by ByteTard 💊</a>
+            <div>
+                <button class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#cartModal">Check Out</button>
+                <button class="btn btn-secondary" onclick="window.location.href='support.html'">Support</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row" id="product-list">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://mindgeek.zendesk.com/attachments/token/cHGAHYoLlWUmM81Nt4UuPs0P1/?name=IMG_6740.PNG" alt="Spook Candy">
+                    <div class="product-info">
+                        <p>Strong, high-dosage gummies infused with THC. Recommended for experienced users only.</p>
+                    </div>
+                    <h5>Death Gummies</h5>
+                    <p>$50.00 USD</p>
+                    <button class="btn btn-warning add-to-cart" data-name="1000mg thc" data-price="50">Add to Cart</button>
 </div>
             </div>
             <div class="col-md-4">
