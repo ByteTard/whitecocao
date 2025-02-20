@@ -1,90 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script>
-        let titleText = "<--- ByteTard Selects --->";
-        let position = 0;
-        function scrollTitle() {
-            document.title = titleText.substring(position) + titleText.substring(0, position);
-            position = (position + 1) % titleText.length;
-            setTimeout(scrollTitle, 200);
-        }
-        scrollTitle();
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: #ffcc00;
-            font-family: 'Courier New', Courier, monospace;
-            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-        }
-        .navbar {
-            background: linear-gradient(90deg, #3e3e3e, #222222);
-            border-bottom: 3px solid #ffcc00;
-        }
-        .product-card {
-            background-color: #2d2d2d;
-            border: 2px solid #ffcc00;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 0px 10px #ffcc00;
-            text-align: center;
-        }
-        .product-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .btn-warning {
-            background-color: #ff9900;
-            border: none;
-        }
-        .btn-warning:hover {
-            background-color: #cc7700;
-        }
-        .floating-cart {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(45, 45, 45, 0.9);
-            color: #ffcc00;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px #ffcc00;
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">💊 White CoCao by ByteTard 💊</a>
-            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cartModal">Check Out</button>
-        </div>
-    </nav>
-
-    <div class="container mt-4">
-        <div class="row" id="product-list">
-            <div class="col-md-4">
-                <div class="product-card">
-                    <img src="https://mindgeek.zendesk.com/attachments/token/cHGAHYoLlWUmM81Nt4UuPs0P1/?name=IMG_6740.PNG" alt="Spook Candy">
-                    <h5>Death Gummies</h5>
-                    <p>$50.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="1000mg thc" data-price="50">Add to Cart</button>
-                </div>
+</div>
             </div>
             <div class="col-md-4">
                 <div class="product-card">
                     <img src="https://mindgeek.zendesk.com/attachments/token/sFQlp4B7W9NuvGVcHB7wBESlQ/?name=IMG_6739.PNG" alt="Mushroom">
+                    <div class="product-info">
+                        <p>Magic mushroom-infused candy for a unique experience. Take responsibly.</p>
+                    </div>
                     <h5>Magic Candy</h5>
                     <p>$25.00 USD</p>
-                    <button class="btn btn-primary add-to-cart" data-name="1000mg shroom" data-price="25">Add to Cart</button>
+                    <button class="btn btn-warning add-to-cart" data-name="1000mg shroom" data-price="25">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -92,75 +16,25 @@
 
     <div class="floating-cart" id="floating-cart">Total: $<span id="floating-cart-total">0</span></div>
 
-    <div class="modal fade" id="cartModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Check Out</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <ul id="cart-items" class="list-group"></ul>
-                    <p class="mt-3">USD: $<span id="cart-total">0</span></p>
-                    <input type="text" id="coupon" class="form-control" placeholder="Enter Coupon Code!">
-                    <button class="btn btn-success mt-2" id="apply-coupon">Check Coupon</button>
-                    <button class="btn btn-danger mt-2" id="clear-cart">Empty Cart</button>
-                    <button class="btn btn-primary mt-2" id="checkout">Pay with Cash App</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        let cart = [];
-        let discountApplied = false;
+        $(document).ready(function () {
+            let cartTotal = 0;
 
-        $(document).on('click', '.add-to-cart', function() {
-            let name = $(this).data('name');
-            let price = parseFloat($(this).data('price'));
-            cart.push({ name, price });
-            updateCart();
-        });
-
-        function updateCart() {
-            let cartList = $('#cart-items');
-            let cartTotal = $('#cart-total');
-            let floatingCartTotal = $('#floating-cart-total');
-            let floatingCart = $('#floating-cart');
-            cartList.empty();
-            let total = 0;
-
-            cart.forEach(item => {
-                let li = $('<li>').text(`${item.name} - $${item.price}`).addClass('list-group-item');
-                cartList.append(li);
-                total += item.price;
+            $(".add-to-cart").click(function () {
+                let price = parseFloat($(this).data("price"));
+                cartTotal += price;
+                $("#floating-cart-total").text(cartTotal.toFixed(2));
+                
+                if (cartTotal > 0) {
+                    $("#floating-cart").fadeIn();
+                }
             });
 
-            if (discountApplied) {
-                total *= 0.85;
-            }
-            cartTotal.text(total.toFixed(2));
-            floatingCartTotal.text(total.toFixed(2));
-            floatingCart.toggle(cart.length > 0);
-        }
-
-        $('#apply-coupon').click(function() {
-            let couponCode = $('#coupon').val();
-            if (couponCode === 'tiktok' && !discountApplied) {
-                discountApplied = true;
-                updateCart();
-            }
-        });
-
-        $('#clear-cart').click(function() {
-            cart = [];
-            discountApplied = false;
-            updateCart();
-        });
-
-        $('#checkout').click(function() {
-            let total = $('#cart-total').text();
-            window.location.href = `https://cash.app/$ballexd?amount=${total}`;
+            $("#cartModal").on("hidden.bs.modal", function () {
+                if (cartTotal === 0) {
+                    $("#floating-cart").fadeOut();
+                }
+            });
         });
     </script>
 </body>
